@@ -7,7 +7,7 @@ export default function SendTrashButton({ userId, onUserUpdated }) {
       console.error('ID de usuario no proporcionado');
       return;
     }
-    fetch(`https://crud-flask-react2.vercel.app/api/trash/users/${userId}`, {
+    fetch(`https://vercel-ract-flask.vercel.app/api/trash/users/${userId}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',

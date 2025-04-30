@@ -26,7 +26,7 @@ export default function ModalUpdate({ usertoUpdate, setUsers, modalId }) {
 
   // Función para actualizar el usuario
   const updateUser = (updatedUser) => {
-    fetch(`https://crud-flask-react2.vercel.app/api/update/users/${usertoUpdate.id}`, {
+    fetch(`https://vercel-ract-flask.vercel.app/api/update/users/${usertoUpdate.id}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

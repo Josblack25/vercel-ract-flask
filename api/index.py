@@ -1,8 +1,12 @@
 from flask import Flask, request, jsonify, send_from_directory #importamos nuestro directorio para ejecutar react en flask
 from flask_cors import CORS
+from whitenoise import WhiteNoise
 
-app = Flask(__name__, static_folder='../crud-react/dist', static_url_path="/")
+
+app = Flask(__name__, static_folder='../crud-react/dist/', static_url_path="/")
 CORS(app) 
+
+
 
 #almacenar usuarios sin base de tados
 
@@ -22,6 +26,9 @@ users = [
 current_id = 2
 
 # endpoint para las apis para el CRUD 
+
+# Configurar WhiteNoise para servir archivos estáticos
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='../crud-react/build', index_file='index.html')
 
 #endponint para el index.html iniciar react desde flask
 @app.route('/')

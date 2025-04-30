@@ -11,7 +11,7 @@ export default function DeletUser ({UserId, onUserUpdated}) {
             return;
         }
 
-        fetch(`https://crud-flask-react2.vercel.app/api/delete/users/${UserId}`, {
+        fetch(`https://vercel-ract-flask.vercel.app/api/delete/users/${UserId}`, {
             method: 'DELETE',
             headers: {
             'Content-Type': 'application/json',

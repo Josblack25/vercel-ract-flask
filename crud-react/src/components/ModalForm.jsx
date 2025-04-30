@@ -12,7 +12,7 @@ export default function ModalForm({ setUsers }) {
   };
 
   const addUser = (newUser) => {
-    fetch("https://crud-flask-react2.vercel.app/api/create/users", {
+    fetch("https://vercel-ract-flask.vercel.app/api/create/users", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

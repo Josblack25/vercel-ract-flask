@@ -8,7 +8,7 @@ export default function SendListButton({userId, onUserUpdated}) {
             console.error('ID de usuario no proporcionado');
             return;
         }
-        fetch(`https://crud-flask-react2.vercel.app/api/restore/users/${userId}`, {
+        fetch(`https://vercel-ract-flask.vercel.app/api/restore/users/${userId}`, {
             method: 'PATCH',
             headers: {
                 'Content-Type': 'application/json',

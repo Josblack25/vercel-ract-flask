@@ -9,7 +9,7 @@ export default function TableList() {
   const [searchTerm, setSearchTerm] = useState(""); // Estado para el término de búsqueda
 
   useEffect(() => {
-    fetch("https://crud-flask-react2.vercel.app/api/data/users")
+    fetch("https://vercel-ract-flask.vercel.app/api/data/users")
       .then((response) => response.json())
       .then((data) => {
         setUsers(data.users);
