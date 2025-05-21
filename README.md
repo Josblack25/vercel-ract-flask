@@ -16,7 +16,6 @@ Aplicación construida con **React** **Flask** para la prueba técnica de Desarr
 - ✅ Crear usuarios con los campos requeridos.
 - ✅ Visualizar lista de usuarios.
 - ✅ Eliminar usuario.
-- ✅ Paginación (4 productos en vista card, 10 en vista tabla).
 - ✅ Interfaz totalmente **responsiva** (móvil y desktop).
 - ✅ Estilo moderno con **TailwindCSS**.
 
