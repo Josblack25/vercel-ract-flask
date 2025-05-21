@@ -7,7 +7,7 @@ Aplicación construida con **React** **Flask** para la prueba técnica de Desarr
 
 ## 🚀 Demo en Vercel
 
-> [ https://crud-productos.vercel.app/](https://crud-productos-react.vercel.app/)
+> ([https://vercel-ract-flask.vercel.app/])
 
 ---
 
