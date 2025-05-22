@@ -30,12 +30,26 @@ export default function TableList() {
     < >
       <div className="w-auto flex items-center flex-col lisTable ">
 
+    
+
         <div className="flex justify-between items-center mt-10 ">
+
+          <div className=" total mr-10  flex flex-col items-center">
+
+            <h2> Usuarios total </h2>
+
+            <h1>              
+              {users && Array.isArray(users) ? users.filter(user => user.status === 1).length : 0} {/* Filtrar usuarios con estado 1 */}
+            </h1>
+          
+            
+          </div>
+
           {/* Add new users */}
           <ModalForm setUsers={setUsers} />
 
           {/* Input de búsqueda */}
-          <div className="navbar-end">
+          <div className="search navbar-end">
             <input
               type="text"
               placeholder="Search"
@@ -47,6 +61,7 @@ export default function TableList() {
         </div>
 
         <div className=" lisTable flex items-center justify-center borderColor">
+          
           <table className="table">
             <thead>
               <tr>
@@ -54,37 +69,36 @@ export default function TableList() {
                 <th>Name</th>
                 <th>Email</th>
                 <th>Age</th>
+                <th>Actions</th>
               </tr>
             </thead>
             <tbody>
-              {users.filter((user) =>
-                    user.state === 1 && // Filtrar usuarios con estado 1
+
+            {users && Array.isArray(users) ? (
+              users
+                .filter( user =>
+                    user.status === 1 && // Filtrar usuarios con estado 1
                     user.name.toLowerCase().includes(searchTerm.toLowerCase()) // Filtrar por el término de búsqueda
                 )
                 .map((user) => (
                   <tr key={user.id} className="hover:bg-base-300">
                     <td>{user.id}</td>
-                    <td>
-                      {user.name.length > 10
-                        ? `${user.name.substring(0, 10)}...`: user.name}
-                    </td>
+                    <td>{user.name.length > 10 ? `${user.name.substring(0, 10)}...` : user.name}</td>
                     <td>{user.email}</td>
                     <td>{user.age}</td>
                     <td>
-                      <ModalUpdate
-                        usertoUpdate={user}
-                        setUsers={setUsers}
-                        modalId={`update_modal_${user.id}`}
-                      />
-                      {user.state === 1 && (
-                        <SendTrashButton
-                          userId={user.id}
-                          onUserUpdated={updateUserState}
-                        />
-                      )}
+                      <ModalUpdate usertoUpdate={user} setUsers={setUsers} modalId={`update_modal_${user.id}`} />
+
+                      {user.status === 1 && 
+                      <SendTrashButton userId={user.id} onUserUpdated={updateUserState} />}
                     </td>
                   </tr>
-                ))}
+                ))
+                ) : (
+                <tr>
+                  <td colSpan="5">Cargando usuarios...</td>
+                </tr>
+              )}
             </tbody>
           </table>
         </div>
