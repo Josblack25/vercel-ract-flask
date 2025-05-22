@@ -28,7 +28,8 @@ current_id = 2
 # endpoint para las apis para el CRUD 
 
 # Configurar WhiteNoise para servir archivos estáticos
-app.wsgi_app = WhiteNoise(app.wsgi_app, root='../crud-react/build', index_file='index.html')
+app.wsgi_app = WhiteNoise(app.wsgi_app, root='../crud-react/dist', index_file=True)
+
 
 #endponint para el index.html iniciar react desde flask
 @app.route('/')
@@ -85,7 +86,7 @@ def get_trash_user(user_id):
     # Buscar el usuario por su ID en la lista
     trash_user = [user for user in users if user['state'] == 0 ]
 
-    return jsonify({'trash':'trash_user'}) , 200
+    return jsonify({'trash':trash_user}) , 200
 
 
 # enviar usuario a la papelera usuarios
